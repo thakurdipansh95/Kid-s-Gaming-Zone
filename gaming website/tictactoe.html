@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html">Back To Home</a>
+    <h1>Tic Tac Toe</h1>
+    <div id="board"></div>
+    <h2 id="status"></h2>
+    <script>
+        const board = document.getElementById("board");
+        const statusText = document.getElementById("status");
+        let cells = [];
+        let curretnPlayer = "X";
+        board.style.display = "grid";
+        board.style.gridTemplateColumns = "repeat(3, 100px)";
+        board.style.gap = "5px";
+        board.style.justifyContent = "center";
+        for (let i = 0; i < 9; i++) {
+            let cell = document.createElement("div");
+            cell.style.width = "100px";
+            cell.style.height = "100px";
+            cell.style.background = "#222";
+            cell.style.display = "flex";
+            cell.style.alignItems = "center";
+            cell.style.justifyContent = "center";
+            cell.style.fontSize = "40px";
+            cell.style.cursor = "pointer";
+            cell.addEventListener("click", () => {
+                if (cell.innerText === "") {
+                    cell.innerText = currentPlayer;
+                    currentPlayer = currentPlayer === "X" ? "0" : "X";
+                }
+            });
+            board.appendChild(cell);
+            cells.push(cell);
+        }
+    </script>
+</body>
+</html>
